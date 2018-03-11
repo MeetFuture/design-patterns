@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
  */
 public class HuangPuPoliceman implements Policeman {
     private Logger logger = LoggerFactory.getLogger(getClass());
+
     @Override
     public void action(Citizen ci) {
         String help = ci.getHelp();

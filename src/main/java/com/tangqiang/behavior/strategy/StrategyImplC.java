@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class StrategyImplC extends Strategy {
     private Logger logger = LoggerFactory.getLogger(getClass());
+
     @Override
     public void method() {
         logger.info("这是第三个实现");

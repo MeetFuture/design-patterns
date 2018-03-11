@@ -9,9 +9,8 @@ import org.slf4j.LoggerFactory;
  * @author tangqiang
  */
 public abstract class Decorator implements Person {
-    private Logger logger = LoggerFactory.getLogger(getClass());
-
     protected Person person;
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public void setPerson(Person person) {
         this.person = person;
