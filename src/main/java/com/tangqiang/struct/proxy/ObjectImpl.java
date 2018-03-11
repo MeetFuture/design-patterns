@@ -12,7 +12,7 @@ public class ObjectImpl implements ObjectFor {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     public ObjectImpl() {
-        System.out.println("ObjectImpl init");
+        logger.info("ObjectImpl init");
     }
 
     @Override

@@ -1,5 +1,8 @@
 package com.tangqiang.creator.singleton;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 单态模式
  * <br>
@@ -23,15 +26,21 @@ package com.tangqiang.creator.singleton;
  * @author tangqiang
  */
 public class App3Singleton {
+    private Logger logger = LoggerFactory.getLogger(App3Singleton.class);
 
     public static void main(String[] args) {
+        new App3Singleton().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------单态模式-------------------------");
         Singleton sing = Singleton.getInstance();
         Singleton sing2 = Singleton.getInstance();
 
-        System.out.println(sing);
-        System.out.println(sing2);
-        System.out.println(sing == sing2);
-        System.out.println(sing.equals(sing2));
+        logger.info("sing  " + sing);
+        logger.info("sing2  " + sing2);
+        logger.info("sing == sing2  " + (sing == sing2));
+        logger.info("sing.equals(sing2)  " + sing.equals(sing2));
     }
 
 }

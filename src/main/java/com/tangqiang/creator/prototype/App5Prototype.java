@@ -1,5 +1,8 @@
 package com.tangqiang.creator.prototype;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 原型模式
  * <br>
@@ -33,17 +36,23 @@ package com.tangqiang.creator.prototype;
  * @author tangqiang
  */
 public class App5Prototype {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App5Prototype().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------原型模式-------------------------");
         Prototype pro = new ConcretePrototype("prototype");
         Prototype pro2 = (Prototype) pro.clone();
 
-        System.out.println("pro:" + pro);
-        System.out.println("pro2:" + pro2);
+        logger.info("pro:" + pro);
+        logger.info("pro2:" + pro2);
 
-        System.out.println("pro.getName:" + pro.getName());
-        System.out.println("pro2.getName:" + pro2.getName());
-        System.out.println(pro == pro2);
-        System.out.println(pro.equals(pro2));
+        logger.info("pro.getName:" + pro.getName());
+        logger.info("pro2.getName:" + pro2.getName());
+        logger.info("pro == pro2   " + (pro == pro2));
+        logger.info("pro.equals(pro2)  " + pro.equals(pro2));
     }
 }

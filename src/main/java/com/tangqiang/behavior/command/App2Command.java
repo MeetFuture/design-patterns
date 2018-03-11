@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.command;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 命令模式<br>
  * 将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤消的操作。<br>
@@ -33,8 +36,14 @@ package com.tangqiang.behavior.command;
  * @author tangqiang
  */
 public class App2Command {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App2Command().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------命令模式-------------------------");
         Receiver rec = new Receiver();
         Command cmd = new CommandImpl(rec);
         Invoker i = new Invoker();

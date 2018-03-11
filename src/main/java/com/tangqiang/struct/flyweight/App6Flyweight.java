@@ -1,5 +1,8 @@
 package com.tangqiang.struct.flyweight;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 享元模式<br>
  * 运用共享技术有效地支持大量细粒度的对象。<br>
@@ -34,13 +37,19 @@ package com.tangqiang.struct.flyweight;
  * @author tangqiang
  */
 public class App6Flyweight {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App6Flyweight().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------享元模式-------------------------");
         Flyweight fly1 = FlyweightFactory.getFlyweight("a");
         fly1.action(1);
 
         Flyweight fly2 = FlyweightFactory.getFlyweight("a");
-        System.out.println(fly1 == fly2);
+        logger.info("fly1 == fly2  " + (fly1 == fly2));
 
         Flyweight fly3 = FlyweightFactory.getFlyweight("b");
         fly3.action(2);
@@ -51,7 +60,7 @@ public class App6Flyweight {
         Flyweight fly5 = FlyweightFactory.getFlyweight("d");
         fly4.action(4);
 
-        System.out.println(FlyweightFactory.getSize());
+        logger.info("FlyweightFactory.getSize " + FlyweightFactory.getSize());
     }
 
 }

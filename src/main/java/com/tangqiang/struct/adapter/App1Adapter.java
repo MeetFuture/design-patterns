@@ -1,5 +1,8 @@
 package com.tangqiang.struct.adapter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 适配器模式<br>
  * 将一个类的接口转换成客户希望的另外一个接口。Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作
@@ -32,8 +35,14 @@ package com.tangqiang.struct.adapter;
  * @author tangqiang
  */
 public class App1Adapter {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App1Adapter().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------适配器模式-------------------------");
         Target target = new Adapter(new Adaptee());
         target.adapteeMethod();
         target.adapterMethod();

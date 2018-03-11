@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.observer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * ConcreteSubject（具体目标）
  * 将有关状态存入各ConcreteObserver对象。
@@ -8,11 +11,12 @@ package com.tangqiang.behavior.observer;
  * @author tangqiang
  */
 public class HuangPuCitizen extends Citizen {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
 
     @Override
     public void sendMessage(String help) {
-        System.out.println("HuangPuCitizen.sendMessage :" + help);
+        logger.info("HuangPuCitizen.sendMessage :" + help);
         setHelp(help);
         for (int i = 0; i < pols.size(); i++) {
             Policeman pol = pols.get(i);

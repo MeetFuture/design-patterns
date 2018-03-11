@@ -1,5 +1,8 @@
 package com.tangqiang.creator.abstractfactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 抽象工厂
  * <br>
@@ -38,9 +41,14 @@ package com.tangqiang.creator.abstractfactory;
  * @author tangqiang
  */
 public class App1AbstractFactory {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App1AbstractFactory().run();
+    }
 
+    private void run() {
+        logger.info("--------------------------抽象工厂-------------------------");
         IAnimalFactory blackAnimalFactory = new BlackAnimalFactory();
         ICat blackCat = blackAnimalFactory.createCat();
         blackCat.eat();

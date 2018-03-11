@@ -1,5 +1,8 @@
 package com.tangqiang.struct.decorator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 装饰模式<br>
  * 动态地给一个对象添加一些额外的职责。就增加功能来说，Decorator模式相比生成子类更为灵活
@@ -27,8 +30,14 @@ package com.tangqiang.struct.decorator;
  * @author tangqiang
  */
 public class App4Decorator {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App4Decorator().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------装饰模式-------------------------");
         Man man = new Man();
         ManDecoratorA md1 = new ManDecoratorA();
         ManDecoratorB md2 = new ManDecoratorB();

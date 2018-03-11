@@ -16,7 +16,7 @@ public class ProxyObject implements ObjectFor {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     public ProxyObject() {
-        System.out.println("ProxyObject init");
+        logger.info("ProxyObject init");
         obj = new ObjectImpl();
     }
 

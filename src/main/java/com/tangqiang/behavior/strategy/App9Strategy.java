@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.strategy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 策略模式<br>
  * 定义一系列的算法,把它们一个个封装起来,并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。<br>
@@ -27,7 +30,15 @@ package com.tangqiang.behavior.strategy;
  * @author tangqiang
  */
 public class App9Strategy {
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     public static void main(String[] args) {
+        App9Strategy th = new App9Strategy();
+        th.run();
+    }
+
+    private void run() {
+        logger.info("--------------------------策略模式-------------------------");
         StrategyContext ctx = new StrategyContext(new StrategyImplA());
         ctx.doMethod();
 

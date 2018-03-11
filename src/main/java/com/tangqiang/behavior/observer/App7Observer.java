@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.observer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 观察者模式<br>
  * 定义对象间的一种一对多的依赖关系,当一个对象的状态发生改变时,所有依赖于它的对象都得到通知并被自动更新。<br>
@@ -30,7 +33,14 @@ package com.tangqiang.behavior.observer;
  * @author tangqiang
  */
 public class App7Observer {
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     public static void main(String[] args) {
+        new App7Observer().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------观察者模式-------------------------");
         Policeman thPol = new TianHePoliceman();
         Policeman hpPol = new HuangPuPoliceman();
         Policeman hpPol2 = new HuangPuPoliceman();
@@ -41,7 +51,7 @@ public class App7Observer {
         citizen.sendMessage("unnormal");
         citizen.sendMessage("normal");
 
-        System.out.println("===========");
+        logger.info("===========");
 
         Citizen citizen2 = new TianHeCitizen();
         citizen2.register(thPol);

@@ -1,5 +1,8 @@
 package com.tangqiang.struct.facade;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 外观模式<br>
  * 为子系统中的一组接口提供一个一致的界面，Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。<br>
@@ -31,21 +34,27 @@ package com.tangqiang.struct.facade;
  * @author tangqiang
  */
 public class App5Facade {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App5Facade().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------外观模式-------------------------");
         ServiceA sa = new ServiceAImpl();
         ServiceB sb = new ServiceBImpl();
         sa.methodA();
         sb.methodB();
 
-        System.out.println("=====================");
+        logger.info("=====================");
         //facade
         Facade facade = new Facade();
-        System.out.println("========facade.methodA");
+        logger.info("========facade.methodA");
         facade.methodA();
-        System.out.println("========facade.methodB");
+        logger.info("========facade.methodB");
         facade.methodB();
-        System.out.println("========facade.methodC");
+        logger.info("========facade.methodC");
         facade.methodC();
     }
 }

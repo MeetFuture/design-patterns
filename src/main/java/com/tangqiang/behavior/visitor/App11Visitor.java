@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.visitor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +47,14 @@ import java.util.List;
  * @author tangqiang
  */
 public class App11Visitor {
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     public static void main(String[] args) {
+        new App11Visitor().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------访问者模式-------------------------");
         Visitor visitor = new ConcreteVisitor();
         StringElement se = new StringElement("abc");
         se.accept(visitor);
@@ -53,7 +63,7 @@ public class App11Visitor {
         fe.accept(visitor);
 
 
-        System.out.println("===========");
+        logger.info("===========");
 
         List result = new ArrayList();
         result.add(new StringElement("abc"));

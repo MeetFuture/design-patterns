@@ -1,5 +1,8 @@
 package com.tangqiang.struct.proxy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 代理模式<br>
  * 为其他对象提供一种代理以控制对这个对象的访问。<br>
@@ -33,8 +36,14 @@ package com.tangqiang.struct.proxy;
  * @author tangqiang
  */
 public class App7Proxy {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App7Proxy().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------代理模式-------------------------");
         ObjectFor obj = new ProxyObject();
         obj.action();
     }

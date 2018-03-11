@@ -1,5 +1,8 @@
 package com.tangqiang.struct.composite;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 组合器模式<br>
  * 将对象组合成树形结构以表示"部分-整体"的层次结构。"Composite使得用户对单个对象和组合对象的使用具有一致性。"
@@ -31,8 +34,14 @@ package com.tangqiang.struct.composite;
  * @author tangqiang
  */
 public class App3Composite {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App3Composite().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------组合器模式-------------------------");
         Employer pm = new ProjectManager("项目经理");
         Employer pa = new ProjectAssistant("项目助理");
         Employer programmer1 = new Programmer("程序员一");

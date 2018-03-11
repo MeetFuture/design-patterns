@@ -1,5 +1,8 @@
 package com.tangqiang.creator.builder;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 建造者模式
  * <br>
@@ -33,14 +36,20 @@ package com.tangqiang.creator.builder;
  * @author tangqiang
  */
 public class App4Builder {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
 
     public static void main(String[] args) {
+        new App4Builder().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------建造者模式-------------------------");
         PersonDirector pd = new PersonDirector();
         Person person = pd.constructPerson(new ManBuilder());
-        System.out.println(person.getBody());
-        System.out.println(person.getFoot());
-        System.out.println(person.getHead());
+        logger.info(person.getBody());
+        logger.info(person.getFoot());
+        logger.info(person.getHead());
     }
 
 

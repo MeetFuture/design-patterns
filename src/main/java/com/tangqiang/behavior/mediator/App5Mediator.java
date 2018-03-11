@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.mediator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 中介者模式<br>
  * 用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。<br>
@@ -24,8 +27,14 @@ package com.tangqiang.behavior.mediator;
  * @author tangqiang
  */
 public class App5Mediator {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App5Mediator().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------中介者模式-------------------------");
         Mediator med = new ConcreteMediator();
         //老板来了
         med.notice("boss");

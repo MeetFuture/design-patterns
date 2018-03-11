@@ -1,5 +1,8 @@
 package com.tangqiang.creator.factorymethod;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 工厂方法
  * <br>
@@ -34,8 +37,14 @@ package com.tangqiang.creator.factorymethod;
  * @author tangqiang
  */
 public class App2FactoryMethod {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App2FactoryMethod().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------工厂方法-------------------------");
         IWorkFactory studentWorkFactory = new StudentWorkFactory();
         studentWorkFactory.getWork().doWork();
 

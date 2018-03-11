@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.visitor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -13,6 +16,7 @@ import java.util.Iterator;
  * @author tangqiang
  */
 public class ConcreteVisitor implements Visitor {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
     public void visitCollection(Collection collection) {
@@ -27,12 +31,12 @@ public class ConcreteVisitor implements Visitor {
 
     @Override
     public void visitFloat(FloatElement floatE) {
-        System.out.println(floatE.getFe());
+        logger.info("" + floatE.getFe());
     }
 
     @Override
     public void visitString(StringElement stringE) {
-        System.out.println(stringE.getSe());
+        logger.info(stringE.getSe());
     }
 }
 

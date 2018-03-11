@@ -1,6 +1,9 @@
 package com.tangqiang.behavior.templatemethod;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 模板方法<br>
  * 定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。
@@ -26,8 +29,14 @@ package com.tangqiang.behavior.templatemethod;
  * @author tangqiang
  */
 public class App10TemplateMethod {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App10TemplateMethod().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------模板方法-------------------------");
         Template temp = new TemplateConcrete();
         temp.update();
     }

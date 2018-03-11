@@ -15,7 +15,7 @@ public class WhiteCat implements ICat {
 
     @Override
     public void eat() {
-        logger.info("The white cat is eating!");
+        logger.info("白猫吃东西!");
     }
 
 }

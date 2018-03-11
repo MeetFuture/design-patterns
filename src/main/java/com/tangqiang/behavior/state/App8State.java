@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.state;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 状态模式<br>
  * 定义对象间的一种一对多的依赖关系,当一个对象的状态发生改变时,所有依赖于它的对象都得到通知并被自动更新。<br>
@@ -25,15 +28,21 @@ package com.tangqiang.behavior.state;
  * @author tangqiang
  */
 public class App8State {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App8State().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------状态模式-------------------------");
         WeatherContext ctx1 = new WeatherContext();
         ctx1.setWeather(new Sunshine());
-        System.out.println(ctx1.weatherMessage());
+        logger.info(ctx1.weatherMessage());
 
-        System.out.println("===============");
+        logger.info("===============");
 
         ctx1.setWeather(new Rain());
-        System.out.println(ctx1.weatherMessage());
+        logger.info(ctx1.weatherMessage());
     }
 }

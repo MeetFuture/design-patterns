@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.chainofresponsibility;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 责任链模式<br>
  * 使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，
@@ -28,8 +31,14 @@ package com.tangqiang.behavior.chainofresponsibility;
  * @author tangqiang
  */
 public class App1ChainOfResponsibility {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App1ChainOfResponsibility().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------责任链模式-------------------------");
         RequestHandle hr = new HRRequestHandle();
         RequestHandle pm = new PMRequestHandle(hr);
         RequestHandle tl = new TLRequestHandle(pm);
@@ -38,12 +47,12 @@ public class App1ChainOfResponsibility {
         Request request = new DimissionRequest();
         tl.handleRequest(request);
 
-        System.out.println("===========");
+        logger.info("===========");
         //team leader处理加薪请求
         request = new AddMoneyRequest();
         tl.handleRequest(request);
 
-        System.out.println("========");
+        logger.info("===========");
         //项目经理上理辞职请求
         request = new DimissionRequest();
         pm.handleRequest(request);

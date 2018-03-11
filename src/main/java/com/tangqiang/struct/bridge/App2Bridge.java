@@ -1,6 +1,9 @@
 package com.tangqiang.struct.bridge;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 桥接模式<br>
  * 将抽象部分与它的实现部分分离，使它们都可以独立地变化
@@ -40,7 +43,14 @@ package com.tangqiang.struct.bridge;
  * @author tangqiang
  */
 public class App2Bridge {
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     public static void main(String[] args) {
+        new App2Bridge().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------桥接模式-------------------------");
         Person man = new Man();
         Person lady = new Lady();
         Clothing jacket = new Jacket();

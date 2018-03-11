@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.iterator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 迭代器模式<br>
  * 给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。<br>
@@ -26,8 +29,14 @@ package com.tangqiang.behavior.iterator;
  * @author tangqiang
  */
 public class App4Iterator {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
+        new App4Iterator().run();
+    }
+
+    private void run() {
+        logger.info("--------------------------迭代器模式-------------------------");
         List list = new ListImpl();
         list.add("a");
         list.add("b");
@@ -35,13 +44,13 @@ public class App4Iterator {
         //第一种迭代方式
         Iterator it = list.iterator();
         while (it.hasNext()) {
-            System.out.println(it.next());
+            logger.info("" + it.next());
         }
 
-        System.out.println("=====");
+        logger.info("=====");
         //第二种迭代方式
         for (int i = 0; i < list.getSize(); i++) {
-            System.out.println(list.get(i));
+            logger.info("" + list.get(i));
         }
     }
 }

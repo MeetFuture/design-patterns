@@ -15,7 +15,7 @@ public class WhiteDog implements IDog {
 
     @Override
     public void eat() {
-        logger.info("The white dog is eating!");
+        logger.info("白狗吃东西!");
     }
 
 }

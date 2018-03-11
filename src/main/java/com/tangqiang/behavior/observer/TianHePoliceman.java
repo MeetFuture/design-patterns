@@ -1,5 +1,8 @@
 package com.tangqiang.behavior.observer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * ConcreteObserver（具体观察者）
  * 维护一个指向ConcreteSubject对象的引用。
@@ -9,15 +12,16 @@ package com.tangqiang.behavior.observer;
  * @author tangqiang
  */
 public class TianHePoliceman implements Policeman {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
     public void action(Citizen ci) {
         String help = ci.getHelp();
         if (help.equals("normal")) {
-            System.out.println("天河警察:一切正常, 不用出动");
+            logger.info("天河警察:一切正常, 不用出动");
         }
         if (help.equals("unnormal")) {
-            System.out.println("天河警察:有犯罪行为, 出动!");
+            logger.info("天河警察:有犯罪行为, 出动!");
         }
     }
 
